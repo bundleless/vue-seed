@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="cache-control" content="nocache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <title>bundleless Vue starter seed</title>
+    <link rel='stylesheet' href='https://cdn.bootcss.com/ant-design-vue/1.5.3/antd.min.css'>
+
+    <script src='https://polyfill.io/v3/polyfill.min.js?features=es5,es6,es7&flags=gated'></script>
+  </head>
+
+  <body class=''>
+    <app class=''
+      data-is='a-switch'
+      data-checkedChildren="开"
+      data-unCheckedChildren="关"
+    ></app>
+
+    <!-- <script src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js"
+      data-main='./src/js/index.js'
+    ></script> -->
+
+    <script type="systemjs-importmap">{
+      "meta": {
+        "*.vue": {
+          "loader": "https://unsafe-production.jspm.io/systemjs-plugin-vue"
+        }
+      },
+      "imports": {
+        "appMain": "./src/js/index.js"
+        ,"vue": "https://cdn.bootcss.com/vue/2.6.11/vue.min.js"
+        ,"moment": "https://system-unsafe-production.jspm.io/moment"
+        ,"requirejs": "https://cdn.bootcss.com/require.js/2.3.6/require.min.js"
+        ,"ant-design-vue": "https://cdn.bootcss.com/ant-design-vue/1.5.3/antd.min.js"
+      }
+    }</script>
+    <script
+      src='https://cdn.bootcss.com/systemjs/6.3.1/s.min.js'
+      onload='javascript:
+        System.import("appMain")
+      '
+    ></script>
+    <script src="https://cdn.bootcss.com/systemjs/6.3.0/extras/amd.min.js"></script>
+    <!-- <script type='module'
+      src='./src/js/index.mjs'
+    ></script> -->
+  </body>
+
+  <script
+    src="https://cdn.bootcss.com/sw-toolbox/3.6.1/sw-toolbox.js"
+  ></script>
+</html>
