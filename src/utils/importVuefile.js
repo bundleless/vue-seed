@@ -55,12 +55,11 @@ function importVuefile (vueComponent) {
         return {}
       }
       ,beforeMount () {
-        // console.info({style})
         document.head.appendChild(style.el)
       }
       ,beforeDestroy () {
-        console.warn('unmounting:', {style})
-        const styleTag= style.el//document.querySelector(`#${style.id}`)
+        // console.warn('unmounting:', {style})
+        const styleTag= style.el
         document.head.removeChild(styleTag)
       }
     }, vmodel)
