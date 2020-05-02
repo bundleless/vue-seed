@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "scripts": {
+    "start": "npm run serve",
     "test": "",
     "serve": "serve ./"
   },

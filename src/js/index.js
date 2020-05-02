@@ -36,6 +36,11 @@ Promise.all([
     Vue.use(VueRouter)
     return new VueRouter({
       mode: 'hash'
+      ,base: function(matched){
+        return matched
+          ? matched[0]
+          : '/'
+      }(location.pathname.match(/\/(.+?\/){0,1}/))
       ,routes: [{
         path: '/'
         ,component: resolve=> importVuefile('/src/components/page-switch.vue').then(resolve)
