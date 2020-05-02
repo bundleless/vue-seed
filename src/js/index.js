@@ -1,9 +1,9 @@
 
-var sw_file= '/sw.config.js'
+var sw_file= './sw.config.js'
 navigator.serviceWorker&& navigator.serviceWorker.register(`${sw_file}?v=${1}`)
 
 function importVuefile (filePath) {
-  return System.import('/src/utils/importVuefile.js')
+  return System.import('./src/utils/importVuefile.js')
   .then(({
     default: _import
   })=> {
@@ -23,7 +23,7 @@ Promise.all([
   ,System.import('https://cdn.bootcss.com/vue-router/3.1.3/vue-router.min.js')
   .then(({default: VueRouter})=> VueRouter)
   // component: appMain
-  ,importVuefile('/src/components/app.vue')
+  ,importVuefile('./src/components/app.vue')
 ])
 .then(([
   Vue
@@ -43,10 +43,10 @@ Promise.all([
       }(location.pathname.match(/\/(.+?\/){0,1}/))
       ,routes: [{
         path: '/'
-        ,component: resolve=> importVuefile('/src/components/page-switch.vue').then(resolve)
+        ,component: resolve=> importVuefile('./src/components/page-switch.vue').then(resolve)
       }, {
         path: '/home'
-        ,component: resolve=> importVuefile('/src/components/page-home.vue').then(resolve)
+        ,component: resolve=> importVuefile('./src/components/page-home.vue').then(resolve)
       }]
     })
   }()
