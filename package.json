@@ -1,0 +1,19 @@
+{
+  "name": "bundless-vue-starter",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "",
+    "serve": "serve ./"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@jspm/core": "^1.1.0",
+    "serve": "^11.3.0"
+  },
+  "type": "module"
+}
