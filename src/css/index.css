@@ -1,0 +1,17 @@
+
+[v-cloak]:after{
+  display: block;content: '';
+  width: 5vmin;height: 5vmin;
+  position: absolute;
+  top: 48.5vh;
+  left: 48.5vw;
+  border-radius: 999pt;
+  border: .2em solid lightgray;
+  border-color: skyblue lightgray lightgray;
+  animation: rotating 1s ease infinite;
+}
+@keyframes rotating {
+  to{
+    transform: rotate(360deg);
+  }
+}

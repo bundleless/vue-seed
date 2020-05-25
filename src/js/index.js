@@ -7,7 +7,7 @@ function importVuefile (filePath) {
   .then(({
     default: _import
   })=> {
-    console.info({_import})
+    // console.info({_import})
     return _import(filePath)
   })
 }
@@ -34,7 +34,7 @@ Promise.all([
   Vue.use(AntD)
   const router= function(){
     Vue.use(VueRouter)
-    return new VueRouter({
+    const routes= new VueRouter({
       mode: 'hash'
       ,base: function(matched){
         return matched
@@ -49,6 +49,18 @@ Promise.all([
         ,component: resolve=> importVuefile('./src/components/page-home.vue').then(resolve)
       }]
     })
+    routes.beforeEach((to, from, next)=> {
+      return next((vm)=> {
+        console.info({vm})
+        routes.app.lazyLoading= true
+      })
+    })
+    routes.beforeResolve((to, from, next)=> {
+      return next((vm)=> {
+        routes.app.lazyLoading= false
+      })
+    })
+    return routes
   }()
 
   const App= Vue.extend(app)

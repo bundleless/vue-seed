@@ -1,11 +1,22 @@
 <template>
   <a-layout id="components-layout-demo-top-side-2">
+    <!-- <a-progress class=''
+      :stroke-color='{
+        from: "seagreen",
+        to: "skyblue"
+      }'
+      percent='100'
+      :show-info='false'
+      size='small'
+      active
+      style='margin: -.5em auto;z-index: 999;'
+    /> -->
     <a-layout-header class="header">
       <div class="logo" />
       <a-menu
         theme="dark"
         mode="horizontal"
-        :default-selected-keys="['2']"
+        :default-selected-keys="['1']"
         :style="{ lineHeight: '64px' }"
       >
         <a-menu-item key="1">
@@ -28,7 +39,9 @@
           :style="{ height: '100%', borderRight: 0 }"
         >
           <a-sub-menu key="sub1">
-            <span slot="title"><a-icon type="user" />subnav 1</span>
+            <span slot="title">
+              <a-icon type="user" />subnav 1
+            </span>
             <a-menu-item key="1">
               option1
             </a-menu-item>
@@ -43,7 +56,9 @@
             </a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub2">
-            <span slot="title"><a-icon type="laptop" />subnav 2</span>
+            <span slot="title">
+              <a-icon type="laptop" />subnav 2
+            </span>
             <a-menu-item key="5">
               option5
             </a-menu-item>
@@ -81,9 +96,18 @@
           <a-breadcrumb-item>App</a-breadcrumb-item>
         </a-breadcrumb>
         <a-layout-content
-          :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
+          :style="{
+            background: '#fff',
+            padding: '24px',
+            margin: 0,
+            minHeight: '280px'
+          }"
         >
-          <router-view />
+          <a-spin class=''
+            :spinning='lazyLoading'
+          >
+            <router-view></router-view>
+          </a-spin>
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -93,7 +117,10 @@
 <script>
   export default {
     data () {
-      collapsed: false
+      return {
+        collapsed: false
+        ,lazyLoading: false
+      }
     }
   }
 </script>
