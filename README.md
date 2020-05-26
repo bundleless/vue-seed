@@ -1,2 +1,2 @@
 # vue-seed
-use vue/requirejs for bundleless front end dev
+use vuejs/systemjs for bundleless front end dev
